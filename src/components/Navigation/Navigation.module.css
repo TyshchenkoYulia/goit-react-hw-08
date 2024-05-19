@@ -1,0 +1,29 @@
+.container {
+  background-color: rgb(38, 37, 37);
+  font-size: 30px;
+  padding: 20px;
+  display: flex;
+  border-bottom: 2px solid yellow;
+  justify-content: space-between;
+}
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:focus {
+  color: yellow;
+}
+
+.active {
+  color: yellow;
+}
+.wrapper {
+  display: flex;
+  gap: 15px;
+}
+.wrapperUser {
+  display: flex;
+  gap: 15px;
+}

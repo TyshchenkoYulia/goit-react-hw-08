@@ -8,13 +8,23 @@ const getNavLinkClass = ({ isActive }) => {
 
 export default function Navigation() {
   return (
-    <nav>
-      <NavLink to="/" className={getNavLinkClass}>
-        Home
-      </NavLink>
-      <NavLink to="/contacts" className={getNavLinkClass}>
-        Contacts
-      </NavLink>
-    </nav>
+    <div className={css.container}>
+      <nav className={css.wrapper}>
+        <NavLink to="/" className={getNavLinkClass}>
+          Home
+        </NavLink>
+        <NavLink to="/contacts" className={getNavLinkClass}>
+          Contacts
+        </NavLink>
+      </nav>
+      <nav className={css.wrapperUser}>
+        <NavLink to="/register" className={getNavLinkClass}>
+          Registration
+        </NavLink>
+        <NavLink to="/login" className={getNavLinkClass}>
+          LogIn
+        </NavLink>
+      </nav>
+    </div>
   );
 }

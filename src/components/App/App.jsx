@@ -1,6 +1,8 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import css from "./App.module.css";
+import Loader from "../Loader/Loader";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -16,9 +18,9 @@ const NotFoundPage = lazy(() =>
 
 export default function App() {
   return (
-    <>
+    <div className={css.container}>
       <Layout>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/register" element={<RegistrationPage />} />
@@ -28,6 +30,6 @@ export default function App() {
           </Routes>
         </Suspense>
       </Layout>
-    </>
+    </div>
   );
 }

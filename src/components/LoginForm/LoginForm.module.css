@@ -1,0 +1,30 @@
+.form {
+  font-size: 20px;
+  width: 320px;
+  border: 2px solid yellow;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+.field {
+  height: 30px;
+  font-size: 20px;
+}
+
+.button {
+  color: black;
+  background-color: yellow;
+  margin-top: 24px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  padding: 8px;
+}

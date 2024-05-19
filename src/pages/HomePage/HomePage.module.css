@@ -1,0 +1,11 @@
+.text {
+  font-size: 30px;
+}
+.icon {
+  color: rgb(167, 167, 34);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

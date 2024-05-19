@@ -5,9 +5,9 @@ export default function Loader() {
   return (
     <div className={css.container}>
       <Hearts
-        height="50"
-        width="50"
-        color="rgb(81, 88, 212)"
+        height="70"
+        width="70"
+        color="yellow"
         ariaLabel="hearts-loading"
         wrapperStyle={{}}
         wrapperClass=""
