@@ -11,10 +11,7 @@
 .active {
   color: yellow;
 }
-.wrapper {
-  display: flex;
-  gap: 15px;
-}
+
 .wrapperUser {
   display: flex;
   gap: 15px;

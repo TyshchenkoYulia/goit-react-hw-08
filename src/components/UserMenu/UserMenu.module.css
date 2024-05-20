@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  gap: 15px;
+}
+.button {
+  color: black;
+  background-color: yellow;
+  margin-top: 24px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  padding: 8px;
+  margin: 0;
+}
+.text {
+  margin: 0;
+}
