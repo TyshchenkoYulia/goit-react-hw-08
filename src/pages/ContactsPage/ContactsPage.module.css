@@ -1,0 +1,8 @@
+.icon {
+  color: rgb(167, 167, 34);
+}
+.wrapper {
+  display: flex;
+  align-items: first baseline;
+  gap: 72px;
+}
