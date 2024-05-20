@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.telNumber {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.icon {
+  margin-right: 6px;
+  color: yellow;
+}
+
+.button {
+  color: black;
+  background-color: yellow;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  padding: 8px;
+}

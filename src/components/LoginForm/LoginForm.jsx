@@ -24,36 +24,38 @@ export default function LoginForm() {
   };
 
   return (
-    <Formik
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-      onSubmit={handleSubmit}
-    >
-      <Form className={css.form} autoComplete="off">
-        <label className={css.label} htmlFor={userNameId}>
-          Email
-          <Field
-            className={css.field}
-            id={userNameId}
-            type="email"
-            name="email"
-          />
-        </label>
-        <label className={css.label} htmlFor={userEmailId}>
-          Password
-          <Field
-            className={css.field}
-            id={userEmailId}
-            type="password"
-            name="password"
-          />
-        </label>
-        <button className={css.button} type="submit">
-          Log In
-        </button>
-      </Form>
-    </Formik>
+    <div>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.form} autoComplete="off">
+          <label className={css.label} htmlFor={userNameId}>
+            Email
+            <Field
+              className={css.field}
+              id={userNameId}
+              type="email"
+              name="email"
+            />
+          </label>
+          <label className={css.label} htmlFor={userEmailId}>
+            Password
+            <Field
+              className={css.field}
+              id={userEmailId}
+              type="password"
+              name="password"
+            />
+          </label>
+          <button className={css.button} type="submit">
+            Log In
+          </button>
+        </Form>
+      </Formik>
+    </div>
   );
 }

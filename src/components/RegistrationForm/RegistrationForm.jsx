@@ -5,11 +5,14 @@ import { useId } from "react";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
 import css from "./RegistrationForm.module.css";
+// import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 export default function RegistrationForm() {
   const userNameId = useId();
   const userEmailId = useId();
   const userPasswordId = useId();
+
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const dispatch = useDispatch();
 
@@ -40,8 +43,17 @@ export default function RegistrationForm() {
       })
       .catch(() => {
         toast.error("Oops, something went wrong!!! Try again");
+        // return <p>Error</p>;
       });
   };
+
+  // const handleSubmit = (values, actions) => {
+  //   dispatch(register(values));
+  //   if (!isLoggedIn) {
+  //     return <p>Oops, something went wrong!!! Try again</p>;
+  //   }
+  //   actions.resetForm();
+  // };
 
   return (
     <Formik

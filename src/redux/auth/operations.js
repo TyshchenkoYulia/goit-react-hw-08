@@ -3,8 +3,9 @@ import axios from "axios";
 
 // tysh@gmail.com
 // tyshYulia@gmail.com
+// tyshHe@gmail.com
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "https://connections-api.herokuapp.com1";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
