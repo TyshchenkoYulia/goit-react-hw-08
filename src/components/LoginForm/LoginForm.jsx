@@ -2,7 +2,7 @@ import { Formik, Form, Field } from "formik";
 import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import css from "./LoginForm.module.css";
 
 export default function LoginForm() {
@@ -14,13 +14,29 @@ export default function LoginForm() {
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values))
       .unwrap()
-      .then(() => {
-        toast.success("Successful !!!");
-        actions.resetForm();
-      })
+      .then(() =>
+        toast.success("Successful autorization!!!", {
+          style: {
+            border: "10px solid yellow",
+            padding: "16px",
+            color: "white",
+            background: "green",
+          },
+        })
+      )
       .catch(() => {
-        toast.error("Oops, something went wrong!!! Try again");
+        toast.error("Oops, something went wrong!!! Try again", {
+          style: {
+            border: "10px solid yellow",
+            padding: "20px",
+            color: "red",
+            fontSize: "16px",
+            background: "white",
+          },
+        });
       });
+
+    actions.resetForm();
   };
 
   return (
@@ -56,6 +72,7 @@ export default function LoginForm() {
           </button>
         </Form>
       </Formik>
+      <Toaster position="top-center" />
     </div>
   );
 }
