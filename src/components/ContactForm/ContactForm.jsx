@@ -15,8 +15,27 @@ export default function ContactForm() {
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values))
       .unwrap()
-      .then(() => toast.success("Your contact has been successfully added!"))
-      .catch(() => toast.error("Oops, something went wrong!!! Try again"));
+      .then(() =>
+        toast.success("Your contact has been saved !!!", {
+          style: {
+            border: "10px solid yellow",
+            padding: "16px",
+            color: "green",
+            background: "white",
+          },
+        })
+      )
+      .catch(() => {
+        toast.error("Oops, something went wrong!!! Try again", {
+          style: {
+            border: "10px solid yellow",
+            padding: "20px",
+            color: "red",
+            fontSize: "16px",
+            background: "white",
+          },
+        });
+      });
     actions.resetForm();
   };
 
