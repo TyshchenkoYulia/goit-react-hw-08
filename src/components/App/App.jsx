@@ -1,8 +1,10 @@
-import { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import css from "./App.module.css";
 import Loader from "../Loader/Loader";
+import { Suspense, lazy, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { refreshUser } from "../../redux/auth/operations";
+import { useDispatch } from "react-redux";
+import css from "./App.module.css";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -17,6 +19,12 @@ const NotFoundPage = lazy(() =>
 );
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <div className={css.container}>
       <Layout>
