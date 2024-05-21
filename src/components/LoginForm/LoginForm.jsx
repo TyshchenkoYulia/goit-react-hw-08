@@ -19,8 +19,8 @@ export default function LoginForm() {
           style: {
             border: "10px solid yellow",
             padding: "16px",
-            color: "white",
-            background: "green",
+            color: "green",
+            background: "white",
           },
         })
       )
