@@ -3,8 +3,11 @@ import Loader from "../Loader/Loader";
 import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { refreshUser } from "../../redux/auth/operations";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./App.module.css";
+import { selectIsRefreshing } from "../../redux/auth/selectors";
+import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -20,6 +23,7 @@ const NotFoundPage = lazy(() =>
 
 export default function App() {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -27,17 +31,45 @@ export default function App() {
 
   return (
     <div className={css.container}>
-      <Layout>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </Layout>
+      {isRefreshing ? (
+        <Loader />
+      ) : (
+        <Layout>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route
+                path="/register"
+                element={
+                  <RestrictedRoute
+                    component={<RegistrationPage />}
+                    redirectTo="/"
+                  />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <RestrictedRoute
+                    component={<LoginPage />}
+                    redirectTo="/contacts"
+                  />
+                }
+              />
+              <Route
+                path="/contacts"
+                element={
+                  <PrivateRoute
+                    component={<ContactsPage />}
+                    redirectTo="/login"
+                  />
+                }
+              />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </Layout>
+      )}
     </div>
   );
 }
